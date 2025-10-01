@@ -1,21 +1,34 @@
 # API Gateway
 
-This is a Gateway for safely routing to APIs in ResourceServer, Photos and Albums microservices with authentication using oauth2.
+## Project Overview
+This is a **Gateway** for securely routing requests to APIs in the following microservices:
+- **ResourceServer**
+- **Photos**
+- **Albums**
 
+Authentication is handled using **OAuth2**.
 
-This project has basic APIs which can only be accessed after proving authorized access token in the headers of the request URI.
+This project contains basic APIs that can only be accessed by providing an **authorized access token** in the request headers.
 
-**Keycloak** authorization server is used to first generate a token from the credentials, then that code is exchanged with
-an access token which can further be used for APIs.
+**Keycloak** authorization server is used to:
+1. Generate a token from user credentials.
+2. Exchange the token for an access token.
+3. Use the access token to access protected APIs.
 
+---
 
 ## Ports
-- API Gateway: 8084
-- keycloak server: 8081
-- Spring Boot Resource Server: 8082
-- Spring Boot Photos Server: 8090
-- Spring Boot Albums Server: 8091
+- **API Gateway:** `8084`
+- **Keycloak Server:** `8081`
+- **Spring Boot Resource Server:** `8082`
+- **Spring Boot Photos Server:** `8090`
+- **Spring Boot Albums Server:** `8091`
 
+---
 
-Note: To start the keycloak server type the following commands:
-- kc.bat (./kc.sh in Linux or macOS) start-dev (simpl start for prod anvironment)--http-port=8820 (optional)
+## Keycloak Server Startup
+To start the Keycloak server, run:
+
+- **Windows:**
+```bash
+kc.bat start-dev --http-port=8820
